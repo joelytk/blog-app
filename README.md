@@ -1,6 +1,6 @@
 # blog-app
 
-Stack:
+## Overview
 
 - Framework: [Next.js 13](https://beta.nextjs.org/docs/)
 - Transformer: [MDX](https://mdxjs.com/)
