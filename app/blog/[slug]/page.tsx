@@ -1,4 +1,4 @@
-const Page = ({ params }) => {
+const Page = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
 
   return (
