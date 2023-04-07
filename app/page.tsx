@@ -1,50 +1,28 @@
-import Link from 'next/link';
+import { createClient, groq } from 'next-sanity';
 
 import Blog from './Blog';
 
-type BlogType = {
-  id: string;
-  slug: string;
-  author: {
-    name: string;
-    imageUrl: string;
-  };
-  title: string;
-  description: string;
-  datePublished: string;
-  readTime: number;
-  tags: string[];
-  imageUrl: string;
+const client = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
+  useCdn: false
+});
+
+const getBlogs = async () => {
+  const blogs = await client.fetch(groq`*[_type == "blog"]`);
+  return blogs;
 };
 
-const blogs: BlogType[] = [
-  {
-    id: '1',
-    slug: 'the-ugly-american-passport-fiasco',
-    author: {
-      name: 'Tom Roston',
-      imageUrl: 'https://placehold.co/16'
-    },
-    title: 'The Ugly American Passport Fiasco',
-    description:
-      "The State Department told me to fly to Puerto Rico to renew my passport. There's something wrong here.",
-    datePublished: 'Apr 4',
-    readTime: 5,
-    tags: ['Passport', 'Travel'],
-    imageUrl: 'https://placehold.co/200x134'
-  }
-];
+const Page = async () => {
+  const blogs = await getBlogs();
 
-const Page = () => {
   return (
     <div className='container my-24 mx-auto'>
-      {/* <Link href='/blog' className='text-3xl font-bold underline'>
-        Welcome to my blog :)
-      </Link> */}
       <h1 className='text-8xl font-bold mb-10'>Welcome to my blog :&#41;</h1>
 
-      {blogs.map((blog: BlogType) => (
-        <Blog key={blog.id} blog={blog} />
+      {blogs.map(blog => (
+        <Blog key={blog._id} blog={blog} />
       ))}
     </div>
   );
