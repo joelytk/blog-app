@@ -35,10 +35,15 @@ export default {
 			required: true
 		},
 		{
-			type: 'reference',
-			name: 'category',
+			type: 'array',
+			name: 'categories',
 			title: 'Categories',
-			to: [{ type: 'category' }],
+			of: [
+				{
+					type: 'reference',
+					to: [{ type: 'category' }]
+				}
+			],
 			required: true
 		},
 		{

@@ -1,5 +1,5 @@
 import author from './author';
-import blog from './blog';
 import category from './category';
+import post from './post';
 
-export const schemaTypes = [author, blog, category];
+export const schemaTypes = [author, category, post];
