@@ -60,8 +60,8 @@ export default {
 		},
 		{
 			type: 'array',
-			name: 'content',
-			title: 'Content',
+			name: 'body',
+			title: 'Body',
 			of: [{ type: 'block' }],
 			required: true
 		}

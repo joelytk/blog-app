@@ -10,7 +10,7 @@ type Post = {
 	categories: Category[];
 	description: string;
 	readTime: number;
-	content: string[];
+	body: string[];
 };
 
 export default Post;

@@ -3,7 +3,18 @@ import { groq } from 'next-sanity';
 import client from './client';
 
 const getPosts = async () => {
-	const posts = await client.fetch(groq`*[_type == "post"]`);
+	const posts = await client.fetch(groq`*[_type == "post"]{
+		_id,
+		slug,
+		"authorName": author->name,
+		"authorImage": author->image,
+		title,
+		description,
+		_updatedAt,
+		readTime,
+		"categories": categories[]->title,
+		image
+	}`);
 	return posts;
 };
 
@@ -13,7 +24,8 @@ const getSelectedPost = async (slug) => {
 			title,
 			"authorName": author->name,
   		"authorImage": author->image,
-			"categories": categories[]->title
+			"categories": categories[]->title,
+			body
 		}`,
 		{ slug }
 	);
