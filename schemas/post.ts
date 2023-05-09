@@ -53,6 +53,12 @@ export default {
 			required: true
 		},
 		{
+			type: 'datetime',
+			name: 'publishedAt',
+			title: 'Published at',
+			required: true
+		},
+		{
 			type: 'number',
 			name: 'readTime',
 			title: 'Read time',

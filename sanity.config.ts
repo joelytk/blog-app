@@ -6,13 +6,18 @@ import { schemaTypes } from './schemas';
 
 const devOnlyPlugins = [getStartedPlugin()];
 
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
+const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION;
+
 export default defineConfig({
-  name: process.env.SANITY_STUDIO_NAME,
-  title: process.env.SANITY_STUDIO_TITLE,
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID,
-  dataset: process.env.SANITY_STUDIO_DATASET,
-  plugins: [deskTool(), visionTool(), ...(isDev ? devOnlyPlugins : [])],
-  schema: {
-    types: schemaTypes
-  }
+	basePath: '/studio',
+	name: 'Joel_Yap_Blog_Content_Studio',
+	title: 'Joel Yap Blog Content Studio',
+	projectId,
+	dataset,
+	plugins: [deskTool(), visionTool(), ...(isDev ? devOnlyPlugins : [])],
+	schema: {
+		types: schemaTypes
+	}
 });
