@@ -1,10 +1,12 @@
+import type PostType from '@/interfaces/post';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
-import dateFormatter from '../utils/dateFormatter';
-import urlFor from '../utils/urlFor';
+import dateFormatter from '@/utils/dateFormatter';
+import urlFor from '@/utils/urlFor';
 
-const PostCard = ({ post }) => {
+const Post = ({ post }: { post: PostType }) => {
 	return (
 		<Link href={'/posts/' + post.slug?.current} passHref>
 			<article className="blog-card">
@@ -61,4 +63,4 @@ const PostCard = ({ post }) => {
 	);
 };
 
-export default PostCard;
+export default Post;

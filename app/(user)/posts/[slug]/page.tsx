@@ -1,8 +1,8 @@
 import { PortableText } from '@portabletext/react';
-
 import Image from 'next/image';
-import { getSelectedPost } from '../../../lib/api';
-import urlFor from '../../../utils/urlFor';
+
+import { getSelectedPost } from '@/lib/api';
+import urlFor from '@/utils/urlFor';
 
 const Page = async ({ params }: { params: { slug: string } }) => {
 	const { slug } = params;

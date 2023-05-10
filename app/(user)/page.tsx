@@ -1,7 +1,7 @@
 import Header from './Header';
 import PostCard from './Post';
 
-import { getPosts } from '../lib/api';
+import { getPosts } from '@/lib/api';
 
 const Page = async () => {
 	const posts = await getPosts();

@@ -12,9 +12,11 @@
 		"moduleResolution": "node",
 		"noEmit": true,
 		"paths": {
+			"@/components/*": ["components/*"],
 			"@/interfaces/*": ["interfaces/*"],
 			"@/lib/*": ["lib/*"],
 			"@/schemas/*": ["schemas/*"],
+			"@/styles/*": ["styles/*"],
 			"@/utils/*": ["utils/*"]
 		},
 		"plugins": [
