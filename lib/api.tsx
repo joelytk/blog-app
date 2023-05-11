@@ -15,6 +15,7 @@ const getPosts = async () => {
 		"categories": categories[]->title,
 		image
 	}`);
+
 	return posts;
 };
 
@@ -29,7 +30,18 @@ const getSelectedPost = async (slug) => {
 		}`,
 		{ slug }
 	);
+
 	return post;
 };
 
-export { getPosts, getSelectedPost };
+const getCategories = async () => {
+	const categories = await client.fetch(groq`*[_type == "category"]{
+		_id,
+		title,
+		description
+	}`);
+
+	return categories;
+};
+
+export { getPosts, getSelectedPost, getCategories };

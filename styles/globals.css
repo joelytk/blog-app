@@ -1,22 +1,32 @@
 @tailwind base;
 
+@layer base {
+	body {
+		height: 200vh;
+	}
+}
+
 @tailwind components;
 
 @layer components {
 	.nav-item {
-		@apply text-sm px-4 py-2 rounded-full hover:bg-black hover:text-white;
+		@apply text-sm mr-6;
 	}
 
 	.btn {
-		@apply px-4 py-2 rounded-full bg-black text-white;
+		@apply px-4 py-2 rounded-full transition-colors ease-linear duration-300 bg-black text-white border border-black border-solid;
 	}
 
 	.blog-card {
-		@apply flex justify-between max-w-2xl;
+		@apply flex justify-between items-center max-w-2xl;
 	}
 
 	.badge {
-		@apply bg-neutral-200 rounded-2xl py-0.5 px-2;
+		@apply bg-neutral-200 hover:bg-neutral-300 transition-colors duration-300 rounded-2xl py-0.5 px-2 cursor-pointer;
+	}
+
+	.container-xl {
+		@apply container mx-auto max-w-screen-xl px-4;
 	}
 }
 

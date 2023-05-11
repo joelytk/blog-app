@@ -10,7 +10,7 @@ const Post = ({ post }: { post: PostType }) => {
 	return (
 		<Link href={'/posts/' + post.slug?.current} passHref>
 			<article className="blog-card">
-				<div>
+				<div className="flex-1 w-full">
 					<div className="flex items-center">
 						{post.authorImage && (
 							<Image
