@@ -1,16 +1,18 @@
 @tailwind base;
 
-@layer base {
-	body {
-		height: 200vh;
-	}
-}
-
 @tailwind components;
 
 @layer components {
 	.nav-item {
 		@apply text-sm mr-6;
+	}
+
+	.footer-nav-item {
+		@apply text-xs mr-5 hover:underline;
+	}
+
+	.footer-nav-item::last-child {
+		@apply mr-0;
 	}
 
 	.btn {
@@ -25,8 +27,16 @@
 		@apply bg-neutral-200 hover:bg-neutral-300 transition-colors duration-300 rounded-2xl py-0.5 px-2 cursor-pointer;
 	}
 
+	.badge-lg {
+		@apply badge text-sm py-1.5 px-3;
+	}
+
 	.container-xl {
 		@apply container mx-auto max-w-screen-xl px-4;
+	}
+
+	.blog-body p {
+		@apply mb-4;
 	}
 }
 

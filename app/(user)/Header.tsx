@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 
+import Logo from '@/components/Logo';
 import useScrollPosition from '@/hooks/useScrollPosition';
 
 const Header = () => {
@@ -11,13 +12,10 @@ const Header = () => {
 		<header
 			className={`border-b border-solid border-b-neutral-800 transition-colors ease-linear duration-300 ${
 				scrollPosition > 480 ? 'bg-white' : 'bg-yellow-500'
-			} sticky top-0 left-0 w-full`}
+			} fixed top-0 left-0 w-full`}
 		>
 			<div className="container-xl flex justify-between items-center h-16">
-				<Link href="/" className="flex items-center">
-					<div className="w-6 h-6 rounded-full bg-black relative top-0.5 mr-2"></div>
-					<h3 className="text-2xl font-bold">Not Medium</h3>
-				</Link>
+				<Logo />
 
 				<div className="flex items-center">
 					<nav>

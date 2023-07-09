@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import '@/styles/globals.css';
 
 export const metadata = {
-	title: 'Blog App',
+	title: 'Not Medium',
 	description: 'Blog app built with Next.js 13 & Sanity.io'
 };
 

@@ -22,9 +22,13 @@ const getPosts = async () => {
 const getSelectedPost = async (slug) => {
 	const post = await client.fetch(
 		groq`*[_type == "post" && slug.current == $slug][0]{
+			image,
 			title,
+			description,
 			"authorName": author->name,
-  		"authorImage": author->image,
+			"authorImage": author->image,
+			readTime,
+			_updatedAt,
 			"categories": categories[]->title,
 			body
 		}`,
